@@ -1,0 +1,56 @@
+body {
+    background-color: royalblue;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+h1 {
+    color: whitesmoke;
+}
+
+h3 {
+    color: whitesmoke;
+}
+
+
+
+#board {
+    padding-top: 3rem;
+    text-align: center;
+}
+
+.row > div {
+    float: left;
+    height: 100px;
+    width: 100px;
+}
+
+.row {
+    clear: both;
+    margin: 0 auto;
+    width: 306px;
+}
+
+.top {
+    border-bottom: 3px solid whitesmoke;
+}
+
+.bottom {
+    border-top: 3px solid whitesmoke;
+}
+
+.left {
+    border-right: 3px solid whitesmoke;
+}
+
+.right {
+    border-left: 3px solid whitesmoke;
+}
+
+.row:hover {
+    cursor: pointer;
+}
+
+
+
+
