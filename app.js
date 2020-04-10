@@ -4,8 +4,6 @@ for (let i = 0; i < cells.length; i++) {
    cells[i].addEventListener ('click', cellClicked);
 }
 
-let player = '🦄';
-
 function cellClicked(e){
     if (e.target.textContent === '🦄' || e.target.textContent === '🐲') {
     return; 
@@ -13,60 +11,109 @@ function cellClicked(e){
    
    e.target.textContent = player;
 
-let topWin = (cells[0].textContent === '🦄' && cells[1].textContent === '🦄' && cells[2].textContent === '🦄');
+let topWinU = (cells[0].textContent === '🦄' && cells[1].textContent === '🦄' && cells[2].textContent === '🦄');
 
-let centerWin = (cells[3].textContent === '🦄' && cells[4].textContent === '🦄' && cells[5].textContent === '🦄');
+let centerWinU = (cells[3].textContent === '🦄' && cells[4].textContent === '🦄' && cells[5].textContent === '🦄');
 
-let bottomWin = (cells[6].textContent === '🦄' && cells[7].textContent === '🦄' && cells[8].textContent === '🦄');
+let bottomWinU = (cells[6].textContent === '🦄' && cells[7].textContent === '🦄' && cells[8].textContent === '🦄');
 
-let leftWin = (cells[0].textContent === '🦄' && cells[3].textContent === '🦄' && cells[6].textContent === '🦄');
+let leftWinU = (cells[0].textContent === '🦄' && cells[3].textContent === '🦄' && cells[6].textContent === '🦄');
 
-let middleWin = (cells[1].textContent === '🦄' && cells[4].textContent === '🦄' && cells[7].textContent === '🦄');
+let middleWinU = (cells[1].textContent === '🦄' && cells[4].textContent === '🦄' && cells[7].textContent === '🦄');
 
-let rightWin = (cells[2].textContent === '🦄' && cells[5].textContent === '🦄' && cells[8].textContent === '🦄');
+let rightWinU = (cells[2].textContent === '🦄' && cells[5].textContent === '🦄' && cells[8].textContent === '🦄');
 
-let forwardWin = (cells[2].textContent === '🦄' && cells[4].textContent === '🦄' && cells[6].textContent === '🦄');
+let forwardWinU = (cells[2].textContent === '🦄' && cells[4].textContent === '🦄' && cells[6].textContent === '🦄');
 
-let backWin = (cells[0].textContent === '🦄' && cells[4].textContent === '🦄' && cells[8].textContent === '🦄');
+let backWinU = (cells[0].textContent === '🦄' && cells[4].textContent === '🦄' && cells[8].textContent === '🦄');
 
 //if (cells[0].textContent === '🦄' && cells[1].textContent === '🦄' && cells[2].textContent === '🦄') {
-if (topWin) {  
-    console.log ('Unicorn')
-    return; 
-}
-    
-if (centerWin) {
-        console.log ('unicorn')
-        return; 
-}
-
-if (bottomWin) {
-        console.log ('unicorn')
+if (topWinU) {  
+    alert('🌈✨🎈✨🎊✨🌈Unicorn✨🦄✨WINS!🌈✨🎊✨🎈✨🌈')
+   }
+    else if (topWinD) {
+        alert('🔥✨🎈✨🎊✨🔥Dragon✨🐲✨WINS!🔥✨🎊✨🎈✨🔥')
+    }
+    else {
         return;
-}
+    } 
 
-if (leftWin) {
-    console.log ('unicorn')
+    
+if (centerWinU) {
+    alert('🌈✨🎈✨🎊✨🌈Unicorn✨🦄✨WINS!🌈✨🎊✨🎈✨🌈')
+    }
+    else if (topWinD) {
+        alert('🔥✨🎈✨🎊✨🔥Dragon✨🐲✨WINS!🔥✨🎊✨🎈✨🔥')
+    }
+    else {
+        return;
+    } 
+    return; 
+    }
+
+if (bottomWinU) {
+    alert('🌈✨🎈✨🎊✨🌈Unicorn✨🦄✨WINS!🌈✨🎊✨🎈✨🌈')
+    else if (topWinD) {
+        alert('🔥✨🎈✨🎊✨🔥Dragon✨🐲✨WINS!🔥✨🎊✨🎈✨🔥')
+    }
+    else {
+        return;
+    } 
+    return;
+    }
+
+if (leftWinU) {
+    alert('🌈✨🎈✨🎊✨🌈Unicorn✨🦄✨WINS!🌈✨🎊✨🎈✨🌈')
+    else if (topWinD) {
+        alert('🔥✨🎈✨🎊✨🔥Dragon✨🐲✨WINS!🔥✨🎊✨🎈✨🔥')
+    }
+    else {
+        return;
+    } 
+    return;
+    }
+
+if (middleWinU) {
+    alert('🌈✨🎈✨🎊✨🌈Unicorn✨🦄✨WINS!🌈✨🎊✨🎈✨🌈')
+    else if (topWinD) {
+        alert('🔥✨🎈✨🎊✨🔥Dragon✨🐲✨WINS!🔥✨🎊✨🎈✨🔥')
+}
+    else {
+        return;
+    } 
     return;
 }
 
-if (middleWin) {
-    console.log ('unicorn')
+if (rightWinU) {
+    alert('🌈✨🎈✨🎊✨🌈Unicorn✨🦄✨WINS!🌈✨🎊✨🎈✨🌈')
+    else if (topWinD) {
+        alert('🔥✨🎈✨🎊✨🔥Dragon✨🐲✨WINS!🔥✨🎊✨🎈✨🔥')
+}
+    else {
+        return;
+    } 
     return;
 }
 
-if (rightWin) {
-    console.log ('unicorn')
+if (forwardWinU) {
+    alert('🌈✨🎈✨🎊✨🌈Unicorn✨🦄✨WINS!🌈✨🎊✨🎈✨🌈')
+    else if (topWinD) {
+        alert('🔥✨🎈✨🎊✨🔥Dragon✨🐲✨WINS!🔥✨🎊✨🎈✨🔥')
+}
+    else {
+        return;
+    } 
     return;
 }
 
-if (forwardWin) {
-    console.log ('unicorn')
-    return;
+if (backWinU) {
+    alert('🌈✨🎈✨🎊✨🌈Unicorn✨🦄✨WINS!🌈✨🎊✨🎈✨🌈')
+    else if (topWinD) {
+        alert('🔥✨🎈✨🎊✨🔥Dragon✨🐲✨WINS!🔥✨🎊✨🎈✨🔥')
 }
-
-if (backWin) {
-    console.log ('unicorn')
+    else {
+        return;
+    } 
     return;
 }
 
