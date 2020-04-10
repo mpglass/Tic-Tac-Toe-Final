@@ -7,14 +7,16 @@ for (let i = 0; i < cells.length; i++) {
 let player = '🦄';
 
 function cellClicked(e){
-    if (e.target.textContent === '🦄') {
+    if (e.target.textContent === '🦄' || e.target.textContent === '🐲') {
     return; 
    }
-   if (e.target.textContent === '🐲') {
-    return;
-   }
+   
    e.target.textContent = player;
-
+ 
+if (cells[0].textContent === '🦄' && cells[1].textContent === '🦄' && cells[2].textContent === '🦄') {
+    console.log ('Unicorn')
+    return;
+}
     togglePlayer();
 }
 
@@ -25,7 +27,13 @@ function togglePlayer(){
         player = '🦄';
     }
 }
-  
+
+
+
+// function (){
+//     if ('winner🦄')
+//     alert ('Unicorn Wins!');
+//}
    
  
 
