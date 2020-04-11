@@ -1,19 +1,25 @@
 body {
-    background-color: aqua;
+    background-image: url(trees.jpg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgb(22, 22, 31);
+    padding-top: 2rem;
 }
 
 h1 {
-    color: black;
+    color: whitesmoke;
 }
 
 h3 {
-    color: black;
+    color: whitesmoke;
 }
 
 
 
 #board {
     padding-top: 3rem;
+    padding-bottom: 2rem;
     text-align: center;
 }
 
@@ -21,6 +27,7 @@ h3 {
     float: left;
     height: 100px;
     width: 100px;
+    padding-bottom: 2rem;
 }
 
 .row {
@@ -32,19 +39,19 @@ h3 {
 }
 
 .top {
-    border-bottom: 3px solid black;
+    border-bottom: 3px solid whitesmoke;
 }
 
 .bottom {
-    border-top: 3px solid black;
+    border-top: 3px solid whitesmoke;
 }
 
 .left {
-    border-right: 3px solid black;
+    border-right: 3px solid whitesmoke;
 }
 
 .right {
-    border-left: 3px solid black;
+    border-left: 3px solid whitesmoke;
 }
 
 .row:hover {
