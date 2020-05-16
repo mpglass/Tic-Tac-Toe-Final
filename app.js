@@ -1,78 +1,125 @@
 const cells = document.querySelectorAll('.row > div ')
+
 for (let i = 0; i < cells.length; i++) {
-   cells[i].textContent
-   cells[i].addEventListener ('click', cellClicked);
+    cells[i].addEventListener('click', cellClicked);
 }
 
-let player = '🦄'     
-let gameOver = 'false'
-let unicornWins = [
-    (cells[0].textContent === '🦄' && cells[1].textContent === '🦄' && cells[2].textContent === '🦄') ||
-    (cells[3].textContent === '🦄' && cells[4].textContent === '🦄' && cells[5].textContent === '🦄') ||
-    (cells[6].textContent === '🦄' && cells[7].textContent === '🦄' && cells[8].textContent === '🦄') ||
-    (cells[6].textContent === '🦄' && cells[7].textContent === '🦄' && cells[8].textContent === '🦄') ||
-    (cells[0].textContent === '🦄' && cells[3].textContent === '🦄' && cells[6].textContent === '🦄') ||
-    (cells[1].textContent === '🦄' && cells[4].textContent === '🦄' && cells[7].textContent === '🦄') ||
-    (cells[2].textContent === '🦄' && cells[5].textContent === '🦄' && cells[8].textContent === '🦄') ||
-    (cells[2].textContent === '🦄' && cells[4].textContent === '🦄' && cells[6].textContent === '🦄') ||
-    (cells[0].textContent === '🦄' && cells[4].textContent === '🦄' && cells[8].textContent === '🦄') 
-]
-let dragonWins = [
-    (cells[0].textContent === '🐲' && cells[1].textContent === '🐲' && cells[2].textContent === '🐲') ||
-    (cells[3].textContent === '🐲' && cells[4].textContent === '🐲' && cells[5].textContent === '🐲') ||
-    (cells[6].textContent === '🐲' && cells[7].textContent === '🐲' && cells[8].textContent === '🐲') ||
-    (cells[6].textContent === '🐲' && cells[7].textContent === '🐲' && cells[8].textContent === '🐲') ||
-    (cells[0].textContent === '🐲' && cells[3].textContent === '🐲' && cells[6].textContent === '🐲') ||
-    (cells[1].textContent === '🐲' && cells[4].textContent === '🐲' && cells[7].textContent === '🐲') ||
-    (cells[2].textContent === '🐲' && cells[5].textContent === '🐲' && cells[8].textContent === '🐲') ||
-    (cells[2].textContent === '🐲' && cells[4].textContent === '🐲' && cells[6].textContent === '🐲') ||
-    (cells[0].textContent === '🐲' && cells[4].textContent === '🐲' && cells[8].textContent === '🐲')
-]
-function cellClicked(e) {
-    e.target.textContent = player;
+let player = '🦄';
+let gameOver = false;
+let moves = 0;
+
+function cellClicked(event) {
+    console.log(event.target);
     if (gameOver) {
         resetBoard();
-        return; 
-    }
-
-    if (e.target.textContent === '🦄' || e.target.textContent === '🐲')  { 
         return;
     }
     
-    e.target.textContent = player;
+    if (event.target.textContent === '🦄' || event.target.textContent === '🐲') {
+        return;
+    }
 
-    checkWinU();
+    event.target.textContent = player;
 
-    checkWinD();
+    checkWinner();
 
     togglePlayer();
-}
-function checkWinner() {
-    if (unicornWins) {
-        alert('🌈✨🎈✨🎊✨🌈Unicorn✨🦄✨WINS!🌈✨🎊✨🎈✨🌈')
+
+    moves++;
+    if (moves === 9){
+        draw();
     }
-    else if (dragonWins) {
-        alert('🔥✨🎈✨🎊✨🔥Dragon✨🐲✨WINS!🔥✨🎊✨🎈✨🔥')
-    }
-    else ( togglePlayer)
 }
 
-function togglePlayer(){
+function checkWinner() {
+    if (cells[0].textContent === '🦄' && cells[1].textContent === '🦄' && cells[2].textContent === '🦄') {
+        unicornWins();
+    }
+    else if (cells[3].textContent === '🦄' && cells[4].textContent === '🦄' && cells[5].textContent === '🦄') {
+        unicornWins();
+    }
+    else if (cells[6].textContent === '🦄' && cells[7].textContent === '🦄' && cells[8].textContent === '🦄') {
+        unicornWins();
+    }
+    else if (cells[6].textContent === '🦄' && cells[7].textContent === '🦄' && cells[8].textContent === '🦄') {
+        unicornWins();
+    }
+    else if (cells[0].textContent === '🦄' && cells[3].textContent === '🦄' && cells[6].textContent === '🦄') {
+        unicornWins();
+    }
+    else if (cells[1].textContent === '🦄' && cells[4].textContent === '🦄' && cells[7].textContent === '🦄') {
+        unicornWins();
+    }
+    else if (cells[2].textContent === '🦄' && cells[5].textContent === '🦄' && cells[8].textContent === '🦄') {
+        unicornWins();
+    }
+    else if (cells[2].textContent === '🦄' && cells[4].textContent === '🦄' && cells[6].textContent === '🦄') {
+        unicornWins();
+    }
+    else if (cells[0].textContent === '🦄' && cells[4].textContent === '🦄' && cells[8].textContent === '🦄') {
+        unicornWins();
+    }
+    else if (cells[0].textContent === '🐲' && cells[1].textContent === '🐲' && cells[2].textContent === '🐲') {
+        dragonWins();
+    }
+    else if (cells[3].textContent === '🐲' && cells[4].textContent === '🐲' && cells[5].textContent === '🐲') {
+        dragonWins();
+    }
+    else if (cells[6].textContent === '🐲' && cells[7].textContent === '🐲' && cells[8].textContent === '🐲') {
+        dragonWins();
+    }
+    else if (cells[6].textContent === '🐲' && cells[7].textContent === '🐲' && cells[8].textContent === '🐲') {
+        dragonWins();
+    }
+    else if (cells[0].textContent === '🐲' && cells[3].textContent === '🐲' && cells[6].textContent === '🐲') {
+        dragonWins();
+    }
+    else if (cells[1].textContent === '🐲' && cells[4].textContent === '🐲' && cells[7].textContent === '🐲') {
+        dragonWins();
+    }
+    else if (cells[2].textContent === '🐲' && cells[5].textContent === '🐲' && cells[8].textContent === '🐲') {
+        dragonWins();
+    }
+    else if (cells[2].textContent === '🐲' && cells[4].textContent === '🐲' && cells[6].textContent === '🐲') {
+        dragonWins();
+    }
+    else if (cells[0].textContent === '🐲' && cells[4].textContent === '🐲' && cells[8].textContent === '🐲') {
+        dragonWins();
+    }
+};
+
+function togglePlayer() {
     if (player === '🦄') {
         player = '🐲';
-    } 
+    }
     else {
         player = '🦄';
     }
-}
+};
 
 function resetBoard() {
-    gameOver = 'false';
-    player = '🦄';
-    for (let i = 0; i < cells.length; i++) {
-        cells[i].textContent = '';
-     }
+    location.reload();
+};
 
+function unicornWins() {
+    alert('🌈✨🎈✨🎊✨🌈Unicorn✨🦄✨WINS!🌈✨🎊✨🎈✨🌈');
+    gameOver = true;
+    console.log('Unicorn wins!');
+    resetBoard();
+};
+
+function dragonWins() {
+    alert('🔥✨🎈✨🎊✨🔥Dragon✨🐲✨WINS!🔥✨🎊✨🎈✨🔥');
+    gameOver = true;
+    console.log('Dragon wins!')
+    resetBoard();
+};
+
+function draw() {
+    alert('💥💀💥Game is over,😭😭😭 no one wins💥💀💥');
+    gameOver = true
+    resetBoard();
 }
-//{unicornWins = 
-//{dragonWins =
+
+
+
